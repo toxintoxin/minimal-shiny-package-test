@@ -1,4 +1,5 @@
 #' @import shiny
+#' @import ggplot2
 #' @export
 
 monthApp <- function(...) {
@@ -9,6 +10,9 @@ monthApp <- function(...) {
   
   ui <- navbarPage(
     "Sample app",
+    tabPanel("Need ggplot2",
+      plotOutput("plot")
+    ),
     tabPanel("Pick a month",
       selectInput("month", "What's your favourite month?", choices = months)
     ),
@@ -16,6 +20,10 @@ monthApp <- function(...) {
     tabPanel("Birthstone", birthstoneUI("tab2"))
   )
   server <- function(input, output, session) {
+    output$plot <- renderPlot({
+      ggplot(iris, aes(x = Sepal.Length, y = Petal.Length, color = Species)) +
+        geom_point(size = 3, alpha = 0.7)
+    })
     monthFeedbackServer("tab1", reactive(input$month))
     birthstoneServer("tab2", reactive(input$month))
   }
