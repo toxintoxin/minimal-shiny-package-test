@@ -1,5 +1,7 @@
-library(shiny)
 
+
+library(shiny)
+#' @export
 monthApp <- function(...) {
   months <- c(
     "January", "February", "March", "April", "May", "June",
