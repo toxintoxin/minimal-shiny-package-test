@@ -4,11 +4,12 @@
 #' @importFrom shiny shinyApp
 #' @export
 
-runShiny <- function(...) {
+app_run <- function(...) {
 
   shinyApp(
-    ui = uiFunction(),
-    server = serverFunction(),
+    ui = app_ui,
+    server = app_server,
     options = list(...)
   )
+
 }
