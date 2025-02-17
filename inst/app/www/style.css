@@ -96,6 +96,16 @@
 
 
 /* custom sidebar */
+body {
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
+  font-family: 'Quicksand', sans-serif;
+}
+
+html {
+  height: -webkit-fill-available;
+}
+
 .btn-toggle {
   padding: .25rem .5rem;
   font-weight: 600;

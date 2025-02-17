@@ -3,7 +3,6 @@
 #' 
 #' @import shiny
 #' @import ggplot2
-#' @export
 app_server <- function(input, output, session) {
 
   sidebar_link_ids <- c(
@@ -18,11 +17,11 @@ app_server <- function(input, output, session) {
     "md5_check"
   )
 
-  shinyjs::onclick("homepage", {
-    # 执行与 observeEvent 类似的逻辑
-    freezeReactiveValue(input, "tabs")
-    updateTabsetPanel(session, inputId = "tabs", selected = "homepage")
-  })
+  # shinyjs::onclick("homepage", {
+  #   # 执行与 observeEvent 类似的逻辑
+  #   freezeReactiveValue(input, "tabs")
+  #   updateTabsetPanel(session, inputId = "tabs", selected = "homepage")
+  # })
 
   # add observers to switch to the clicked link's tab:
   lapply(sidebar_link_ids, \(id) {
@@ -32,4 +31,6 @@ app_server <- function(input, output, session) {
     })
   })
 
+  tfServer("tf")
+print(big_data)
 }

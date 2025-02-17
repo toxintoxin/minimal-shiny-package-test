@@ -46,7 +46,7 @@ server <- function(input, output, session) {
 #   lapply(enviPat_modules, function(enviPat_module) {
 #     get(paste0(enviPat_module, "Server"))(enviPat_module)
 #   })
-#   tfServer("tf")
+  # tfServer("tf")
 
 #   # toolkits
 #   md5Server("md5")

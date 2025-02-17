@@ -2,7 +2,6 @@
 #' @return UI object
 #' 
 #' @import shiny
-#' @export
 app_ui <- function(request) {
 
   addResourcePath('www', system.file('app/www', package = 'shiomix'))
@@ -35,7 +34,7 @@ app_ui <- function(request) {
     tags$body(
       # class = "bg-light",
       bootstrapLib(theme = bslib::bs_theme(version = 5)),
-      # suppressDependencies("bootstrap"),
+      suppressDependencies("bootstrap"),
       tags$div(
         class = "d-flex vh-100",
         # sidebar
@@ -190,6 +189,10 @@ app_ui <- function(request) {
             tabPanelBody(
               value = "data_preprocessing",
               ppUI("pp")
+            ),
+            tabPanelBody(
+              value = "tf",
+              tfUI("tf")
             ),
           )
         )
